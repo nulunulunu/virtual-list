@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <div className='outside'>
-        <LazyLoad />
+        <VirtualList />
       </div>
     </div>
   );

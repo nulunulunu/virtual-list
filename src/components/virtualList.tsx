@@ -43,25 +43,13 @@ export default function VirtualList(){
         console.log('aaaaaaa')
         updateNewList()
     }
-    function fangDouHandleScroll(item:()=>void){ //对滑动函数进行防抖处理
-        //在虚拟列表中需不需要用到防抖；
-        var timeOut:any = null
-        return function(){
-            clearTimeout(timeOut)
-            timeOut=setTimeout(() => {
-                item()
-            }, 1000);
-            
-        }
-    }
-    const _fangDouFunc = fangDouHandleScroll(handleScroll)
     useEffect(()=>{
         window.addEventListener('scroll',handleScroll)
     },[])
     return (<div style={{height:_height}}>
        <div style={{paddingTop:_valueControl.offset}}>
         { _valueControl.visibleData.map((item,index)=>{
-            return <PerDom key={index} />
+            return <PerDom ifInViewPoint={true} key={index} />
         })}
        </div>
     </div>)

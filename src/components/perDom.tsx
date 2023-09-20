@@ -6,6 +6,6 @@ type perDomParam = {
     ifInViewPoint?:boolean
 }
 export default function perDom(item:perDomParam){
-    const {ifInViewPoint=false}=item
+    const {ifInViewPoint}=item
     return <img alt='' className='per-Dom' src={ifInViewPoint?header:''}></img>
 }
